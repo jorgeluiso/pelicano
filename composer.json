@@ -9,15 +9,16 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-				"twbs/bootstrap": "3.3.*",
-				"onokumus/metismenu": "2.7.*",
-				"jacobsteringa/odoo-client": "dev-master"
+		"twbs/bootstrap": "3.3.*",
+		"onokumus/metismenu": "2.7.*",
+		"jacobsteringa/odoo-client": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "classmap": [
