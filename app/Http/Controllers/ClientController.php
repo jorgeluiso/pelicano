@@ -16,7 +16,7 @@ class ClientController extends Controller
 		
 		// $obj = new \stdClass;
 		// $obj->id = 1;
-		// $obj->name = 'Safco';
+		// $obj->name = 'Safco'; ̰
 		//
 		// $data['clients'][] = $obj;
 		// $obj = new \stdClass;
@@ -28,52 +28,33 @@ class ClientController extends Controller
 		return view('client/list',$data);
 	}
 
-	public function edit($client_id, Client $client){
-		$obj = $this->client->find($client_id);
-		// $obj = new \stdClass;
-		// $obj->id = 1;
-		// $obj->name = 'Safco';
-		
-		$data = [];
-		$data['edit'] = true;
-		$data['client_id'] = $client_id;
-		$data['client_name'] = $obj->name;
-		
-		return view('client/form',$data);
-	}
-	
 	public function create(){
 		$data = [];
 		$data['edit'] = false;
 		return view('client/form',$data);
 	}
 		
-	public function submitCreate(Request $request, Client $client){
+	public function submitCreate(Request $request){
 		$this->validate($request,
 		[
 			'name'=>'required',
 		]);
+		$client = new Client;
+        $client->name = $request->name;
+		$client->save();
 		
-		
-		$data = [];
-		$data['id'] = $request->input('id');
-		$data['name'] = $request->input('name');
-		$client->insert($data);
-		return view('client/view',$data);
+		return redirect('clientes/' . str($client->id));
 	}
 	
-	public function submitEdit(Request $request, Client $client){
+	public function submitEdit(Request $request){
 		$this->validate($request,
 		[
 			'name'=>'required',
 		]);
-		
-		$data = [];
-		$data['client_id'] = $request->input('id');
-		$data['client_name'] = $request->input('name');
-		
-		
-		return redirect('clientes/'.$data['client_id']);
+		$obj = $this->client->find($request->id);
+		$obj->name = $request->name;
+		$obj->save();
+		return redirect('clientes/'.str($obj->id));
 	}
 	
 	public function show($client_id){
@@ -81,9 +62,17 @@ class ClientController extends Controller
 		$obj = $this->client->find($client_id);
 	  
 		$data = [];
-		$data['action'] = 'view';
-		$data['client_id'] = $client_id;
-		$data['client_name'] = $obj->name;
+		$data['client'] = $obj;
 		return view('client/view',$data);
+	}
+
+	public function edit($client_id){
+		$obj = $this->client->find($client_id);
+		
+		$data = [];
+		$data['edit'] = true;
+		$data['client'] = $obj;
+		
+		return view('client/form',$data);
 	}
 }
