@@ -29,7 +29,7 @@
                                             <input class="form-control" name="name" value="{{($edit ? old('name',$client_name) : old('name')) }}">
                                             <p class="help-block">{{$errors->first('name')}}</p>
                                         </div>
-																				<button type="submit" class="btn btn-default" onclick="location.href='{{ route('show_client',['client_id' => $client_id]) }}'">Descartar</button>
+																				<button type="submit" class="btn btn-default" onclick="location.href='{{ $edit ? route('show_client',['client_id' => $client_id]) : 'route('list_clients') }}'">Descartar</button>
 																				<button type="submit" class="btn btn-primary">Guardar</button>
                                     </form>
                                 </div>
