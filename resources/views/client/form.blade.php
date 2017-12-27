@@ -23,7 +23,7 @@
                                 <div class="col-lg-6">
                                     <form role="form" method="post" action="{{($edit ? route('submit_edit_client',['client_id'=>$client_id]) : route('submit_create_client'))}}">
 																			{{ csrf_field() }}
-																				<input name="id" value="{{$client_id}}" type="hidden"/>
+																				<input name="id" value="{{$edit ? $client_id : ''}}" type="hidden"/>
                                         <div class="form-group">
                                             <label>Nombre</label>
                                             <input class="form-control" name="name" value="{{($edit ? old('name',$client_name) : old('name')) }}">
