@@ -43,7 +43,7 @@ class ClientController extends Controller
         $client->name = $request->name;
 		$client->save();
 		
-		return redirect('clientes/' . str($client->id));
+		return redirect('clientes/' . $client->id);
 	}
 	
 	public function submitEdit(Request $request){
@@ -54,7 +54,7 @@ class ClientController extends Controller
 		$obj = $this->client->find($request->id);
 		$obj->name = $request->name;
 		$obj->save();
-		return redirect('clientes/'.str($obj->id));
+		return redirect('clientes/' . $obj->id);
 	}
 	
 	public function show($client_id){
