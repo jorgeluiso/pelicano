@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', Cliente {{$client_id}})
+@section('title', 'Cliente')
 @section('content')
             <div class="row">
                 <div class="col-lg-12">
