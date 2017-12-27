@@ -1,5 +1,5 @@
 # pelicano
 
-Track asset services
+Track services by assets 
 
 Integrating with Oddo and Wialon
