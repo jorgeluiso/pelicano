@@ -62,7 +62,8 @@ class ClientController extends Controller
 		$obj = $this->client->find($client_id);
 	  
 		$data = [];
-		$data['client'] = $obj;
+		$data['client_id'] = $obj->id;
+		$data['client_name'] = $obj->name;
 		return view('client/view',$data);
 	}
 
@@ -71,7 +72,8 @@ class ClientController extends Controller
 		
 		$data = [];
 		$data['edit'] = true;
-		$data['client'] = $obj;
+		$data['client_id'] = $obj->id;
+		$data['client_name'] = $obj->name;
 		
 		return view('client/form',$data);
 	}
