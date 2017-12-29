@@ -11,7 +11,7 @@
         "laravel/tinker": "~1.0",
 		"twbs/bootstrap": "3.3.*",
 		"onokumus/metismenu": "2.7.*",
-		"jacobsteringa/odoo-client": "dev-master"
+		"quickbooks/v3-php-sdk": ">=4.0.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
