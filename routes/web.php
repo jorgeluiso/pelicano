@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/* MAIN ROUTE ****************************************************************/
+
+Route::get('/', function () 
+{
     return view('welcome');
 });
+
+/* CLIENTS ROUTES ************************************************************/
 
 Route::get('/clientes', 'ClientController@list')->name('list_clients');
 Route::get('/clientes/nuevo', 'ClientController@create')->name('create_client');

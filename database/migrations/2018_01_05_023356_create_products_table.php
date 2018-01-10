@@ -8,6 +8,9 @@ use Illuminate\Database\Migrations\Migration;
 
 /* CLASS IMPLEMENTATION ******************************************************/
 
+/**
+ * @brief Migration implementation for the Products table.
+ */
 class CreateProductsTable extends Migration
 {
   /**

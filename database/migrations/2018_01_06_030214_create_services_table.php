@@ -8,6 +8,9 @@ use Illuminate\Database\Migrations\Migration;
 
 /* CLASS IMPLEMENTATION ******************************************************/
 
+/**
+ * @brief Migration implementation for the Services table.
+ */
 class CreateServicesTable extends Migration
 {
   /**
