@@ -20,6 +20,8 @@
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Correo Electrónico</th>
               </tr>
             </thead>
             <tbody>
@@ -27,6 +29,8 @@
                 <tr class='clickable-row' data-href='{{ route('show_client',['client_id' => $client->id]) }}'>
                   <td>{{ $client->id }}</td>
                   <td>{{ $client->name }}</td>
+                  <td>{{ $client->phone }}</td>
+                  <td>{{ $client->email }}</td>
                 </tr>
               @endforeach
             </tbody>

@@ -25,6 +25,14 @@
                 <label>Nombre</label> <input class="form-control" name="name" value="{{($edit ? old('name',$client_name) : old('name')) }}">
                 <p class="help-block">{{$errors->first('name')}}</p>
               </div>
+              <div class="form-group">
+                <label>Teléfono</label> <input class="form-control" name="phone" value="{{($edit ? old('phone',$client_phone) : old('phone')) }}">
+                <p class="help-block">{{$errors->first('phone')}}</p>
+              </div>
+              <div class="form-group">
+                <label>Correo Electrónico</label> <input class="form-control" name="email" value="{{($edit ? old('email',$client_email) : old('email')) }}">
+                <p class="help-block">{{$errors->first('email')}}</p>
+              </div>
               <button type="submit" class="btn btn-default" onclick="location.href='{{ $edit ? route('show_client',['client_id' => $client_id]) : route('list_clients') }}'">Descartar</button>
               <button type="submit" class="btn btn-primary">Guardar</button>
             </form>

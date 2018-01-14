@@ -42,6 +42,7 @@ class ClientController extends Controller
   public function create()
   {
     $data = [];
+    
     $data['edit'] = false;
     
     return view('client/form', $data);
@@ -56,13 +57,18 @@ class ClientController extends Controller
    */
   public function submitCreate(Request $request)
   {
-    $this->validate($request, [ 'name' => 'required' ]);
+    $this->validate($request, [ 'name'  => 'required' ]);
+    $this->validate($request, [ 'phone' => 'required' ]);
+    $this->validate($request, [ 'email' => 'required' ]);
     
     $client = new Client();
-    $client->name = $request->name;
+    
+    $client->name  = $request->name;
+    $client->phone = $request->phone;
+    $client->email = $request->email;
     $client->save();
     
-    return redirect('clientes/' . $client->id);
+    return redirect('client/' . $client->id);
   }
 
   /**
@@ -74,13 +80,18 @@ class ClientController extends Controller
    */
   public function submitEdit(Request $request)
   {
-    $this->validate($request, [ 'name' => 'required' ]);
+    $this->validate($request, [ 'name'  => 'required' ]);
+    $this->validate($request, [ 'phone' => 'required' ]);
+    $this->validate($request, [ 'email' => 'required' ]);
     
-    $obj = $this->client->find($request->id);
-    $obj->name = $request->name;
-    $obj->save();
+    $client = $this->client->find($request->id);
     
-    return redirect('clientes/' . $obj->id);
+    $client->name  = $request->name;
+    $client->phone = $request->phone;
+    $client->email = $request->email;
+    $client->save();
+    
+    return redirect('client/' . $client->id);
   }
 
   /**
@@ -92,11 +103,13 @@ class ClientController extends Controller
    */
   public function show($client_id)
   {
-    $obj = $this->client->find($client_id);
-    
+    $obj  = $this->client->find($client_id);
     $data = [];
-    $data['client_id'] = $obj->id;
-    $data['client_name'] = $obj->name;
+    
+    $data['client_id']    = $obj->id;
+    $data['client_name']  = $obj->name;
+    $data['client_phone'] = $obj->phone;
+    $data['client_email'] = $obj->email;
     
     return view('client/view', $data);
   }
@@ -110,12 +123,14 @@ class ClientController extends Controller
    */
   public function edit($client_id)
   {
-    $obj = $this->client->find($client_id);
-    
+    $obj  = $this->client->find($client_id);
     $data = [];
-    $data['edit'] = true;
-    $data['client_id'] = $obj->id;
-    $data['client_name'] = $obj->name;
+    
+    $data['edit']         = true;
+    $data['client_id']    = $obj->id;
+    $data['client_name']  = $obj->name;
+    $data['client_phone'] = $obj->phone;
+    $data['client_email'] = $obj->email;
     
     return view('client/form', $data);
   }

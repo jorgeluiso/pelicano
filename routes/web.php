@@ -20,10 +20,10 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 /* CLIENTS ROUTES ************************************************************/
 
-Route::get('/client',                    'ClientController@list')->name('list_clients');
-Route::get('/client/nuevo',              'ClientController@create')->name('create_client');
-Route::get('/client/{client_id}',        'ClientController@show')->name('show_client');
-Route::get('/client/{client_id}/editar', 'ClientController@edit')->name('edit_client');
+Route::get('/client',                  'ClientController@list')->name('list_clients');
+Route::get('/client/new',              'ClientController@create')->name('create_client');
+Route::get('/client/{client_id}',      'ClientController@show')->name('show_client');
+Route::get('/client/{client_id}/edit', 'ClientController@edit')->name('edit_client');
 
-Route::post('/client/nuevo',              'ClientController@submitCreate')->name('submit_create_client');
-Route::post('/client/{client_id}/editar', 'ClientController@submitEdit')->name('submit_edit_client');
+Route::post('/client/nuevo',            'ClientController@submitCreate')->name('submit_create_client');
+Route::post('/client/{client_id}/edit', 'ClientController@submitEdit')->name('submit_edit_client');
