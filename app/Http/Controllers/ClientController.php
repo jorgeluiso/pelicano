@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Client;
 
+/**
+ * @brief Controller for the requests related to a client.
+ */
 class ClientController extends Controller
 {
   /**
@@ -72,7 +75,7 @@ class ClientController extends Controller
   }
 
   /**
-   * @brief Edits a client information from a request.
+   * @brief Edits a client's information from a request.
    * 
    * @param Request $request The request.
    * 
