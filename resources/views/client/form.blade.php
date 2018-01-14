@@ -1,4 +1,5 @@
-@extends('layout.app') @section('title', ($edit ? 'Editando Cliente' . $client_id : 'Nuevo Cliente'))
+@extends('layouts.app') 
+@section('title', ($edit ? 'Editando Cliente' . $client_id : 'Nuevo Cliente'))
 @section('content')
 <div class="row">
   <div class="col-lg-12">

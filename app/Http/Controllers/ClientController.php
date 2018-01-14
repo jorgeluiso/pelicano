@@ -7,7 +7,9 @@ use App\Client;
 
 class ClientController extends Controller
 {
-	public function __construct(Client $client){
+	public function __construct(Client $client)
+	{
+	  $this->middleware('auth');
 		$this->client = $client;
 	}
 	public function list(Client $client){

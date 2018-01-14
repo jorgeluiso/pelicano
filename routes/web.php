@@ -26,3 +26,8 @@ Route::post('/clientes/nuevo', 'ClientController@submitCreate')->name('submit_cr
 Route::get('/clientes/{client_id}', 'ClientController@show')->name('show_client');
 Route::get('/clientes/{client_id}/editar', 'ClientController@edit')->name('edit_client');
 Route::post('/clientes/{client_id}/editar', 'ClientController@submitEdit')->name('submit_edit_client');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

@@ -1,4 +1,5 @@
-@extends('layout.app') @section('title', 'Clientes') @section('content')
+@extends('layouts.app')
+@section('title', 'Clientes') @section('content')
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Clientes</h1>
@@ -48,4 +49,5 @@
       });
   });
 </script>
-@endpush @endsection
+@endpush 
+@endsection

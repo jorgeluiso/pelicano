@@ -1,4 +1,4 @@
-@extends('layout.app') @section('title', 'Cliente') @section('content')
+@extends('layouts.app') @section('title', 'Cliente') @section('content')
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Cliente {{$client_name}}</h1>
